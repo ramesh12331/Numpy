@@ -1,0 +1,1491 @@
+# ============================================================
+# NUMPY COMPLETE COURSE
+# CHAPTER 2 - CREATING ARRAYS
+# VS CODE NOTES WITH COMMENTED EXPLANATION
+# ============================================================
+
+import numpy as np
+
+
+# ============================================================
+# 1. WHAT IS A NUMPY ARRAY?
+# ============================================================
+
+# A NumPy array is a collection of values arranged
+# in one or more dimensions.
+#
+# NumPy arrays are the main data structure used
+# throughout NumPy.
+
+arr = np.array([10, 20, 30, 40])
+
+print("NumPy Array:")
+print(arr)
+
+# Output:
+# [10 20 30 40]
+
+
+# ============================================================
+# 2. np.array()
+# ============================================================
+
+# np.array() converts a Python sequence such as
+# a list into a NumPy array.
+#
+# Syntax:
+# np.array(object)
+
+arr = np.array([10, 20, 30, 40])
+
+print("\nnp.array() Example:")
+print(arr)
+
+# Output:
+# [10 20 30 40]
+
+
+# ============================================================
+# 3. 1D ARRAY
+# ============================================================
+
+# 1D = One Dimensional Array
+#
+# Think of a 1D array as a single line/sequence.
+#
+# Index:
+#
+#        0    1    2    3
+#        ↓    ↓    ↓    ↓
+#       10   20   30   40
+
+arr = np.array([10, 20, 30, 40])
+
+print("\n1D Array:")
+print(arr)
+
+# ndim tells us the number of dimensions.
+
+print("Number of dimensions:", arr.ndim)
+
+# Output:
+# Number of dimensions: 1
+
+
+# ============================================================
+# 4. 2D ARRAY
+# ============================================================
+
+# 2D = Two Dimensional Array
+#
+# Think of a 2D array as a TABLE.
+#
+# It contains:
+#     Rows
+#     Columns
+#
+# Example:
+#
+#        Column
+#          ↓
+#       10  20  30
+#       40  50  60
+#
+#       ↑
+#      Rows
+
+arr = np.array([
+    [10, 20, 30],
+    [40, 50, 60]
+])
+
+print("\n2D Array:")
+print(arr)
+
+print("Number of dimensions:", arr.ndim)
+print("Shape:", arr.shape)
+
+# Output:
+# [[10 20 30]
+#  [40 50 60]]
+#
+# Number of dimensions: 2
+# Shape: (2, 3)
+#
+# (2, 3) means:
+# 2 rows
+# 3 columns
+
+
+# ============================================================
+# 5. 3D ARRAY
+# ============================================================
+
+# 3D = Three Dimensional Array
+#
+# Think of 3D as multiple 2D tables stacked together.
+#
+# Example:
+#
+# Matrix 1:
+# [1 2 3]
+# [4 5 6]
+#
+# Matrix 2:
+# [7 8 9]
+# [10 11 12]
+
+arr = np.array([
+    [
+        [1, 2, 3],
+        [4, 5, 6]
+    ],
+    [
+        [7, 8, 9],
+        [10, 11, 12]
+    ]
+])
+
+print("\n3D Array:")
+print(arr)
+
+print("Number of dimensions:", arr.ndim)
+print("Shape:", arr.shape)
+
+# Output:
+# [[[ 1  2  3]
+#   [ 4  5  6]]
+#
+#  [[ 7  8  9]
+#   [10 11 12]]]
+#
+# Number of dimensions: 3
+# Shape: (2, 2, 3)
+#
+# (2, 2, 3) means:
+#
+# 2 matrices
+# × 2 rows
+# × 3 columns
+
+
+# ============================================================
+# 6. 1D vs 2D vs 3D
+# ============================================================
+
+# Easy memory trick:
+#
+# 1D → Line
+# 2D → Table
+# 3D → Stack of Tables
+#
+#
+# 1D:
+# [1 2 3]
+#
+# 2D:
+# [[1 2]
+#  [3 4]]
+#
+# 3D:
+# [
+#   [[1 2]
+#    [3 4]],
+#
+#   [[5 6]
+#    [7 8]]
+# ]
+
+
+# ============================================================
+# 7. dtype
+# ============================================================
+
+# dtype means DATA TYPE.
+#
+# It tells us what type of values are stored
+# inside the NumPy array.
+#
+# Common types:
+#
+# int
+# float
+# bool
+# complex
+
+arr = np.array([10, 20, 30])
+
+print("\ndtype Example:")
+print(arr)
+print("Data type:", arr.dtype)
+
+# Output may be:
+# [10 20 30]
+# Data type: int64
+#
+# The exact integer dtype can depend on
+# your operating system/platform.
+
+
+# ============================================================
+# 8. SPECIFYING dtype
+# ============================================================
+
+# We can explicitly tell NumPy which data type
+# we want to use.
+#
+# Syntax:
+#
+# np.array(data, dtype=data_type)
+
+arr = np.array([10, 20, 30], dtype="float64")
+
+print("\nSpecified dtype:")
+print(arr)
+print(arr.dtype)
+
+# Output:
+# [10. 20. 30.]
+# float64
+#
+# Dry Run:
+#
+# 10 → 10.0
+# 20 → 20.0
+# 30 → 30.0
+
+
+# ============================================================
+# 9. dtype - INTEGER vs FLOAT
+# ============================================================
+
+# Integer array:
+
+int_arr = np.array([10, 20, 30], dtype="int32")
+
+# Float array:
+
+float_arr = np.array([10, 20, 30], dtype="float64")
+
+print("\nInteger Array:")
+print(int_arr)
+print(int_arr.dtype)
+
+print("\nFloat Array:")
+print(float_arr)
+print(float_arr.dtype)
+
+# Integer:
+# [10 20 30]
+#
+# Float:
+# [10. 20. 30.]
+
+
+# ============================================================
+# 10. WHY dtype IS IMPORTANT
+# ============================================================
+
+# dtype is important because NumPy needs to know
+# how values should be stored and processed.
+#
+# Examples:
+#
+# Student marks  → integer
+# Age            → integer
+# Salary         → float
+# Temperature    → float
+# Boolean flags  → bool
+
+marks = np.array([70, 80, 90], dtype="int32")
+
+salary = np.array([25000.50, 30000.75], dtype="float64")
+
+print("\nMarks:")
+print(marks)
+
+print("\nSalary:")
+print(salary)
+
+
+# ============================================================
+# 11. ndmin
+# ============================================================
+
+# ndmin means:
+#
+# "minimum number of dimensions"
+#
+# Syntax:
+#
+# np.array(data, ndmin=n)
+#
+# It ensures that the resulting array has
+# AT LEAST the specified number of dimensions.
+
+
+# Normal array:
+
+arr1 = np.array([1, 2, 3])
+
+print("\nNormal Array:")
+print(arr1)
+print("Dimensions:", arr1.ndim)
+
+# Output:
+# [1 2 3]
+# Dimensions: 1
+
+
+# ndmin=2:
+
+arr2 = np.array([1, 2, 3], ndmin=2)
+
+print("\nArray using ndmin=2:")
+print(arr2)
+print("Dimensions:", arr2.ndim)
+
+# Output:
+# [[1 2 3]]
+# Dimensions: 2
+
+
+# ============================================================
+# 12. IMPORTANT POINT ABOUT ndmin
+# ============================================================
+
+# ndmin=2 does NOT always mean:
+#
+# "Make exactly 2 dimensions."
+#
+# It means:
+#
+# "Make sure the array has AT LEAST 2 dimensions."
+#
+# If the input already has more dimensions,
+# NumPy will not reduce them.
+
+
+arr = np.array([
+    [1, 2],
+    [3, 4]
+], ndmin=2)
+
+print("\nndmin with an existing 2D array:")
+print(arr)
+print("Dimensions:", arr.ndim)
+
+# Output:
+# [[1 2]
+#  [3 4]]
+# Dimensions: 2
+
+
+# ============================================================
+# 13. np.zeros()
+# ============================================================
+
+# np.zeros() creates an array filled with zeros.
+#
+# Syntax:
+#
+# np.zeros(shape)
+
+
+# 1D zeros:
+
+arr = np.zeros(5)
+
+print("\n1D zeros:")
+print(arr)
+
+# Output:
+# [0. 0. 0. 0. 0.]
+
+
+# ============================================================
+# 14. 2D np.zeros()
+# ============================================================
+
+# (2, 3) means:
+#
+# 2 rows
+# 3 columns
+
+arr = np.zeros((2, 3))
+
+print("\n2D zeros:")
+print(arr)
+
+# Output:
+# [[0. 0. 0.]
+#  [0. 0. 0.]]
+
+
+# Total number of elements:
+#
+# 2 × 3 = 6
+
+
+# ============================================================
+# 15. np.zeros() WITH INTEGER dtype
+# ============================================================
+
+# By default zeros() normally creates float values.
+#
+# We can specify integer dtype.
+
+arr = np.zeros((2, 3), dtype=int)
+
+print("\nInteger zeros:")
+print(arr)
+
+# Output:
+# [[0 0 0]
+#  [0 0 0]]
+
+
+# ============================================================
+# 16. np.ones()
+# ============================================================
+
+# np.ones() creates an array filled with ones.
+#
+# Syntax:
+#
+# np.ones(shape)
+
+arr = np.ones((2, 3))
+
+print("\n2D ones:")
+print(arr)
+
+# Output:
+# [[1. 1. 1.]
+#  [1. 1. 1.]]
+
+
+# ============================================================
+# 17. np.ones() WITH INTEGER dtype
+# ============================================================
+
+arr = np.ones((2, 3), dtype=int)
+
+print("\nInteger ones:")
+print(arr)
+
+# Output:
+# [[1 1 1]
+#  [1 1 1]]
+
+
+# ============================================================
+# 18. np.full()
+# ============================================================
+
+# np.full() creates an array where every element
+# contains the value we specify.
+#
+# Syntax:
+#
+# np.full(shape, value)
+
+arr = np.full((2, 3), 7)
+
+print("\nnp.full() Example:")
+print(arr)
+
+# Output:
+# [[7 7 7]
+#  [7 7 7]]
+
+
+# ============================================================
+# 19. zeros vs ones vs full
+# ============================================================
+
+# zeros():
+#
+# np.zeros(4)
+#
+# [0. 0. 0. 0.]
+#
+#
+# ones():
+#
+# np.ones(4)
+#
+# [1. 1. 1. 1.]
+#
+#
+# full():
+#
+# np.full(4, 7)
+#
+# [7 7 7 7]
+
+
+# ============================================================
+# 20. np.empty()
+# ============================================================
+
+# np.empty() creates an array without initializing
+# its elements to a particular value.
+#
+# Syntax:
+#
+# np.empty(shape)
+#
+# IMPORTANT:
+# The values are UNINITIALIZED.
+#
+# Therefore, you should NOT expect zeros.
+
+
+arr = np.empty((2, 3))
+
+print("\nnp.empty() Example:")
+print(arr)
+
+# Output:
+# The values are unpredictable.
+#
+# They depend on whatever data happens to be
+# present in that memory area.
+#
+# Example only:
+#
+# [[6.9e-310 0.0e+000 4.9e-324]
+#  [0.0e+000 1.2e-322 0.0e+000]]
+#
+# Your output will normally be different.
+
+
+# ============================================================
+# 21. zeros() vs empty()
+# ============================================================
+
+# zeros():
+#
+# Memory is initialized with 0.
+#
+# np.zeros(5)
+#
+# [0. 0. 0. 0. 0.]
+#
+#
+# empty():
+#
+# Memory is allocated but values are not initialized.
+#
+# np.empty(5)
+#
+# Values are unpredictable.
+
+
+# ============================================================
+# 22. np.arange()
+# ============================================================
+
+# np.arange() creates a sequence of values.
+#
+# Syntax:
+#
+# np.arange(start, stop, step)
+#
+# IMPORTANT:
+# stop is normally EXCLUDED.
+
+
+arr = np.arange(1, 10)
+
+print("\nnp.arange(1, 10):")
+print(arr)
+
+# Output:
+# [1 2 3 4 5 6 7 8 9]
+
+
+# ============================================================
+# 23. arange() DRY RUN
+# ============================================================
+
+# Code:
+#
+# np.arange(1, 10)
+#
+# Start = 1
+# Stop  = 10
+# Step  = 1
+#
+# Start:
+# 1
+#
+# +1 → 2
+# +1 → 3
+# +1 → 4
+# +1 → 5
+# +1 → 6
+# +1 → 7
+# +1 → 8
+# +1 → 9
+#
+# Next value = 10
+#
+# But stop=10 is excluded.
+#
+# Therefore:
+#
+# [1 2 3 4 5 6 7 8 9]
+
+
+# ============================================================
+# 24. arange() WITH STEP
+# ============================================================
+
+arr = np.arange(0, 11, 2)
+
+print("\nnp.arange(0, 11, 2):")
+print(arr)
+
+# Output:
+# [ 0  2  4  6  8 10]
+
+
+# Dry Run:
+#
+# Start = 0
+# Step = 2
+#
+# 0
+# ↓ +2
+# 2
+# ↓ +2
+# 4
+# ↓ +2
+# 6
+# ↓ +2
+# 8
+# ↓ +2
+# 10
+#
+# Next = 12
+#
+# 12 is outside stop=11.
+
+
+# ============================================================
+# 25. arange() ANOTHER EXAMPLE
+# ============================================================
+
+arr = np.arange(2, 12, 3)
+
+print("\nnp.arange(2, 12, 3):")
+print(arr)
+
+# Output:
+# [ 2  5  8 11]
+#
+# Dry Run:
+#
+# 2
+# ↓ +3
+# 5
+# ↓ +3
+# 8
+# ↓ +3
+# 11
+#
+# Next:
+# 14
+#
+# 14 >= 12
+# So NumPy stops.
+
+
+# ============================================================
+# 26. np.linspace()
+# ============================================================
+
+# np.linspace() creates a specified number of
+# evenly spaced values.
+#
+# Syntax:
+#
+# np.linspace(start, stop, num)
+#
+# By default, both start and stop are included.
+
+
+arr = np.linspace(0, 10, 5)
+
+print("\nnp.linspace(0, 10, 5):")
+print(arr)
+
+# Output:
+# [ 0.   2.5  5.   7.5 10. ]
+
+
+# ============================================================
+# 27. linspace() MATHEMATICAL DRY RUN
+# ============================================================
+
+# We need:
+#
+# Start = 0
+# Stop = 10
+# Number of values = 5
+#
+# Distance:
+#
+# 10 - 0 = 10
+#
+# Number of intervals:
+#
+# 5 - 1 = 4
+#
+# Step:
+#
+# 10 / 4 = 2.5
+#
+# Therefore:
+#
+# 0
+# ↓ +2.5
+# 2.5
+# ↓ +2.5
+# 5
+# ↓ +2.5
+# 7.5
+# ↓ +2.5
+# 10
+#
+# Final:
+#
+# [0.  2.5  5.  7.5 10.]
+
+
+# ============================================================
+# 28. arange() vs linspace()
+# ============================================================
+
+# arange():
+#
+# You decide the STEP.
+#
+# np.arange(0, 10, 2)
+#
+# [0 2 4 6 8]
+#
+#
+# linspace():
+#
+# You decide HOW MANY VALUES.
+#
+# np.linspace(0, 10, 5)
+#
+# [0.  2.5 5.  7.5 10.]
+#
+#
+# MEMORY TRICK:
+#
+# arange  → "How much should I jump?"
+#
+# linspace → "How many values do I need?"
+
+
+# ============================================================
+# 29. np.eye()
+# ============================================================
+
+# np.eye() creates a 2D identity-style matrix.
+#
+# Main diagonal = 1
+# Other positions = 0
+#
+# Syntax:
+#
+# np.eye(n)
+
+
+arr = np.eye(3)
+
+print("\nnp.eye(3):")
+print(arr)
+
+# Output:
+# [[1. 0. 0.]
+#  [0. 1. 0.]
+#  [0. 0. 1.]]
+
+
+# ============================================================
+# 30. UNDERSTANDING THE MAIN DIAGONAL
+# ============================================================
+
+# Matrix:
+#
+# 1 0 0
+# 0 1 0
+# 0 0 1
+#
+# Main diagonal:
+#
+# 1
+#   1
+#     1
+#
+# Therefore:
+#
+# np.eye(3)
+#
+# creates a 3 × 3 identity-style matrix.
+
+
+# ============================================================
+# 31. RANDOM ARRAYS
+# ============================================================
+
+# NumPy provides random functions to generate
+# random numbers.
+#
+# Common functions:
+#
+# np.random.rand()
+# np.random.random()
+# np.random.randint()
+
+
+# ============================================================
+# 32. np.random.rand()
+# ============================================================
+
+# np.random.rand() generates random floating-point
+# numbers in the range:
+#
+# [0, 1)
+#
+# This means:
+#
+# 0 is included
+# 1 is NOT included.
+
+arr = np.random.rand(5)
+
+print("\nnp.random.rand(5):")
+print(arr)
+
+# Example output:
+# [0.42 0.17 0.83 0.61 0.09]
+#
+# Your values will normally be different.
+
+
+# ============================================================
+# 33. np.random.random()
+# ============================================================
+
+# np.random.random() also generates random
+# floating-point numbers in:
+#
+# [0, 1)
+
+arr = np.random.random(5)
+
+print("\nnp.random.random(5):")
+print(arr)
+
+# Example output:
+# [0.73 0.21 0.58 0.14 0.92]
+#
+# Your values will normally be different.
+
+
+# ============================================================
+# 34. rand() vs random()
+# ============================================================
+
+# Both can generate random floating-point
+# values between 0 and 1.
+#
+# Example:
+#
+# np.random.rand(5)
+#
+# np.random.random(5)
+#
+# Both produce 5 random float values.
+
+
+# ============================================================
+# 35. np.random.randint()
+# ============================================================
+
+# randint() generates random INTEGER values.
+#
+# Syntax:
+#
+# np.random.randint(low, high, size)
+#
+# IMPORTANT:
+# high is EXCLUDED.
+
+
+arr = np.random.randint(1, 10, 5)
+
+print("\nnp.random.randint(1, 10, 5):")
+print(arr)
+
+# Possible output:
+# [3 8 1 6 4]
+#
+# Possible values:
+#
+# 1, 2, 3, 4, 5, 6, 7, 8, 9
+#
+# 10 is excluded.
+
+
+# ============================================================
+# 36. randint() DRY RUN
+# ============================================================
+
+# np.random.randint(1, 10, 5)
+#
+# 1 = LOW
+# 10 = HIGH
+# 5 = NUMBER OF VALUES
+#
+# Range:
+#
+# 1 <= value < 10
+#
+# Therefore:
+#
+# 1 to 9 are possible.
+#
+# We need 5 values.
+
+
+# ============================================================
+# 37. RANDOM 2D ARRAY
+# ============================================================
+
+# We can create random arrays with multiple dimensions.
+#
+# size=(3, 4)
+#
+# means:
+#
+# 3 rows
+# 4 columns
+
+arr = np.random.randint(1, 100, size=(3, 4))
+
+print("\nRandom 2D Array:")
+print(arr)
+
+# Example output:
+#
+# [[25 71 43 89]
+#  [12 64 31 56]
+#  [92 18 77 40]]
+#
+# Your output will normally be different.
+
+
+# ============================================================
+# 38. RANDOM STUDENT MARKS
+# ============================================================
+
+# Suppose we need marks for 10 students.
+#
+# Marks should be between:
+#
+# 0 and 100
+#
+# We can generate them using randint().
+#
+# high=101 is used because high is excluded.
+
+marks = np.random.randint(0, 101, 10)
+
+print("\nRandom Student Marks:")
+print(marks)
+
+# Example:
+# [78 45 92 61 83 55 71 99 64 38]
+#
+# Output will be different each time.
+
+
+# ============================================================
+# 39. REAL-WORLD EXAMPLE - STUDENT DATA
+# ============================================================
+
+# Suppose a school has 30 students.
+#
+# Initially, we want to create an array
+# containing 30 zero values.
+
+marks = np.zeros(30)
+
+print("\nInitial Student Marks:")
+print(marks)
+
+# Later, actual marks can be assigned.
+
+
+# ============================================================
+# 40. REAL-WORLD EXAMPLE - TEMPERATURE
+# ============================================================
+
+# Suppose we want exactly 7 equally spaced
+# temperature points between 20°C and 40°C.
+
+temperature = np.linspace(20, 40, 7)
+
+print("\nTemperature Points:")
+print(temperature)
+
+# Output:
+#
+# [20.         23.33333333 26.66666667 30.
+#  33.33333333 36.66666667 40.        ]
+
+
+# ============================================================
+# 41. COMMON MISTAKE - FORGETTING PARENTHESES
+# ============================================================
+
+# WRONG:
+#
+# np.array
+#
+# This only refers to the function.
+#
+# It does NOT create an array.
+#
+#
+# CORRECT:
+#
+# np.array([1, 2, 3])
+
+
+# ============================================================
+# 42. COMMON MISTAKE - CONFUSING SHAPE WITH VALUES
+# ============================================================
+
+# This:
+
+arr = np.zeros((2, 3))
+
+# means:
+#
+# 2 rows
+# 3 columns
+#
+# It does NOT mean:
+#
+# [2, 3]
+
+
+# ============================================================
+# 43. COMMON MISTAKE - arange() STOP
+# ============================================================
+
+arr = np.arange(1, 5)
+
+print("\nnp.arange(1, 5):")
+print(arr)
+
+# Output:
+# [1 2 3 4]
+#
+# NOT:
+# [1 2 3 4 5]
+#
+# Because stop=5 is excluded.
+
+
+# ============================================================
+# 44. COMMON MISTAKE - empty()
+# ============================================================
+
+# Do NOT assume:
+#
+# np.empty(5)
+#
+# means:
+#
+# [0 0 0 0 0]
+#
+# empty() creates uninitialized values.
+#
+# If you specifically need zeros:
+#
+# np.zeros(5)
+
+
+# ============================================================
+# 45. ARRAY CREATION QUICK REVISION
+# ============================================================
+
+# np.array()
+# → Create array from existing data
+#
+# np.zeros()
+# → Fill with zeros
+#
+# np.ones()
+# → Fill with ones
+#
+# np.full()
+# → Fill with chosen value
+#
+# np.empty()
+# → Uninitialized values
+#
+# np.arange()
+# → Sequence using step
+#
+# np.linspace()
+# → Evenly spaced values
+#
+# np.eye()
+# → Identity-style matrix
+#
+# np.random.rand()
+# → Random floats [0, 1)
+#
+# np.random.random()
+# → Random floats [0, 1)
+#
+# np.random.randint()
+# → Random integers
+
+
+# ============================================================
+# 46. COMPLETE COMPARISON
+# ============================================================
+
+# Function                  Purpose
+#
+# np.array()                Existing data → array
+#
+# np.zeros()                Fill with 0
+#
+# np.ones()                 Fill with 1
+#
+# np.full()                 Fill with chosen value
+#
+# np.empty()                Uninitialized array
+#
+# np.arange()               Sequence using step
+#
+# np.linspace()             Fixed number of evenly spaced values
+#
+# np.eye()                  Identity-style matrix
+#
+# np.random.rand()          Random floats
+#
+# np.random.random()        Random floats
+#
+# np.random.randint()       Random integers
+
+
+# ============================================================
+# 47. INTERVIEW QUESTIONS
+# ============================================================
+
+# Q1. How do you create a NumPy array?
+#
+# Answer:
+#
+# np.array([1, 2, 3])
+
+
+# Q2. What is a 1D array?
+#
+# Answer:
+#
+# A one-dimensional sequence of values.
+#
+# Example:
+#
+# [1, 2, 3]
+
+
+# Q3. What is a 2D array?
+#
+# Answer:
+#
+# An array organized into rows and columns.
+#
+# Example:
+#
+# [[1, 2],
+#  [3, 4]]
+
+
+# Q4. What is a 3D array?
+#
+# Answer:
+#
+# An array containing multiple 2D arrays.
+
+
+# Q5. What does dtype mean?
+#
+# Answer:
+#
+# Data type of array elements.
+
+
+# Q6. What does ndmin do?
+#
+# Answer:
+#
+# It specifies the minimum number of dimensions
+# of the resulting array.
+
+
+# Q7. What does np.zeros() do?
+#
+# Answer:
+#
+# Creates an array filled with zeros.
+
+
+# Q8. What does np.ones() do?
+#
+# Answer:
+#
+# Creates an array filled with ones.
+
+
+# Q9. What does np.full() do?
+#
+# Answer:
+#
+# Creates an array filled with a specified value.
+
+
+# Q10. What does np.empty() do?
+#
+# Answer:
+#
+# Creates an array with uninitialized elements.
+
+
+# Q11. Difference between arange() and linspace()?
+#
+# Answer:
+#
+# arange() → choose the step
+# linspace() → choose the number of values
+
+
+# Q12. What does np.eye(3) create?
+#
+# Answer:
+#
+# A 3 × 3 identity-style matrix.
+
+
+# Q13. What does this mean?
+#
+# np.random.randint(1, 10, 5)
+#
+# Answer:
+#
+# Generate 5 random integers:
+# 1 <= value < 10
+
+
+# ============================================================
+# 48. PRACTICE QUESTIONS - BEGINNER
+# ============================================================
+
+# Practice 1:
+# Create:
+#
+# [10 20 30 40 50]
+#
+# using np.array()
+
+
+# Practice 2:
+# Create a 1D array containing numbers from 1 to 10.
+
+
+# Practice 3:
+# Create a 3 × 3 array of zeros.
+
+
+# Practice 4:
+# Create a 2 × 4 array of ones.
+
+
+# Practice 5:
+# Create a 3 × 3 array filled with 7.
+
+
+# ============================================================
+# 49. PRACTICE QUESTIONS - INTERMEDIATE
+# ============================================================
+
+# Practice 6:
+# Create:
+#
+# [0 2 4 6 8 10]
+#
+# using np.arange()
+
+
+# Practice 7:
+# Create exactly 6 evenly spaced values
+# between 0 and 100.
+
+
+# Practice 8:
+# Create a 4 × 4 identity matrix.
+
+
+# Practice 9:
+# Create 5 random integers between 1 and 50.
+
+
+# Practice 10:
+# Create a 3 × 4 random integer array
+# between 10 and 100.
+
+
+# ============================================================
+# 50. MINI CODING EXERCISE
+# ============================================================
+
+# Task:
+#
+# Create a student marks dataset.
+#
+# Requirements:
+#
+# 1. Create 10 random marks.
+# 2. Marks should be between 0 and 100.
+# 3. Store them in a NumPy array.
+# 4. Print the marks.
+
+student_marks = np.random.randint(0, 101, 10)
+
+print("\nMini Exercise - Student Marks:")
+print(student_marks)
+
+# Example output:
+#
+# [78 45 92 61 83 55 71 99 64 38]
+#
+# Your output will be different because
+# random numbers are generated.
+
+
+# ============================================================
+# 51. CHAPTER 2 FINAL MEMORY MAP
+# ============================================================
+
+#                 CREATE ARRAY
+#                      |
+#          +-----------+-----------+
+#          |                       |
+#      np.array()              Other methods
+#                                  |
+#                    +-------------+-------------+
+#                    |             |             |
+#                  Fill         Sequence       Random
+#                    |             |             |
+#              +-----+-----+   +---+---+     +---+--------+
+#              |     |     |   |       |     |            |
+#            zeros  ones  full arange linspace rand    randint
+#                                                     random
+#
+#
+# Also remember:
+#
+# eye()
+# → Identity-style matrix
+#
+# dtype
+# → Data type
+#
+# ndmin
+# → Minimum dimensions
+
+
+# ============================================================
+# 52. SUPER IMPORTANT MEMORY TRICKS
+# ============================================================
+
+# 1D → Line
+#
+# 2D → Table
+#
+# 3D → Stack of Tables
+#
+#
+# zeros → 0
+#
+# ones → 1
+#
+# full → Your value
+#
+# empty → Uninitialized
+#
+#
+# arange → Step
+#
+# linspace → Number of values
+#
+#
+# eye → Identity matrix
+#
+#
+# rand/random → Random floats
+#
+# randint → Random integers
+
+
+# ============================================================
+# 53. CHAPTER 2 CHECKLIST
+# ============================================================
+
+# Before moving to Chapter 3, make sure you understand:
+#
+# ☑ np.array()
+# ☑ 1D arrays
+# ☑ 2D arrays
+# ☑ 3D arrays
+# ☑ dtype
+# ☑ ndmin
+# ☑ zeros()
+# ☑ ones()
+# ☑ full()
+# ☑ empty()
+# ☑ arange()
+# ☑ linspace()
+# ☑ eye()
+# ☑ random.rand()
+# ☑ random.random()
+# ☑ random.randint()
+# ☑ arange vs linspace
+# ☑ zeros vs ones vs full
+# ☑ Random arrays
+# ☑ Mathematical dry runs
+# ☑ Common mistakes
+# ☑ Interview questions
+# ☑ Practice questions
+# ☑ Mini exercise
+
+
+# ============================================================
+# CHAPTER 2 COMPLETE
+# ============================================================

@@ -1,0 +1,655 @@
+# ============================================================
+# NUMPY COMPLETE COURSE
+# CHAPTER 1 - INTRODUCTION TO NUMPY
+# VS CODE NOTES WITH COMMENTED EXPLANATION
+# ============================================================
+
+
+# ============================================================
+# 1. WHAT IS NUMPY?
+# ============================================================
+
+# NumPy stands for Numerical Python.
+#
+# NumPy is a Python library mainly used for:
+# - Numerical calculations
+# - Arrays
+# - Mathematical operations
+# - Statistical calculations
+# - Machine Learning
+# - Scientific computing
+#
+# Main idea:
+# NumPy provides powerful array-based tools
+# for numerical computing in Python.
+
+
+# ============================================================
+# 2. WHY DO WE USE NUMPY?
+# ============================================================
+
+# Example:
+# We have student marks.
+
+marks = [70, 80, 90, 60, 85]
+
+# We want to add 5 marks to every student.
+#
+# With a Python list, we normally need a loop.
+
+new_marks = []
+
+for mark in marks:
+    new_marks.append(mark + 5)
+
+print("Python List:")
+print(new_marks)
+
+# Output:
+# [75, 85, 95, 65, 90]
+
+
+# ============================================================
+# USING NUMPY
+# ============================================================
+
+import numpy as np
+
+marks = np.array([70, 80, 90, 60, 85])
+
+# NumPy performs the operation element-by-element.
+
+new_marks = marks + 5
+
+print("\nNumPy Array:")
+print(new_marks)
+
+# Output:
+# [75 85 95 65 90]
+
+
+# ============================================================
+# MATHEMATICAL DRY RUN
+# ============================================================
+
+# 70 + 5 = 75
+# 80 + 5 = 85
+# 90 + 5 = 95
+# 60 + 5 = 65
+# 85 + 5 = 90
+
+
+# ============================================================
+# 3. NUMPY VS PYTHON LIST
+# ============================================================
+
+# ---------------------------
+# Python List
+# ---------------------------
+
+a = [1, 2, 3]
+b = [4, 5, 6]
+
+print("\nPython List Addition:")
+print(a + b)
+
+# Output:
+# [1, 2, 3, 4, 5, 6]
+
+# IMPORTANT:
+# For Python lists:
+# + means concatenation (joining).
+
+
+# ---------------------------
+# NumPy Array
+# ---------------------------
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+print("\nNumPy Array Addition:")
+print(a + b)
+
+# Output:
+# [5 7 9]
+
+# NumPy performs element-wise addition:
+#
+# 1 + 4 = 5
+# 2 + 5 = 7
+# 3 + 6 = 9
+
+
+# ============================================================
+# 4. MULTIPLICATION DIFFERENCE
+# ============================================================
+
+# ---------------------------
+# Python List
+# ---------------------------
+
+numbers = [1, 2, 3]
+
+print("\nPython List Multiplication:")
+print(numbers * 2)
+
+# Output:
+# [1, 2, 3, 1, 2, 3]
+
+# Python repeats the list.
+
+
+# ---------------------------
+# NumPy Array
+# ---------------------------
+
+numbers = np.array([1, 2, 3])
+
+print("\nNumPy Array Multiplication:")
+print(numbers * 2)
+
+# Output:
+# [2 4 6]
+
+# NumPy multiplies every element:
+#
+# 1 × 2 = 2
+# 2 × 2 = 4
+# 3 × 2 = 6
+
+
+# ============================================================
+# 5. PYTHON LIST VS NUMPY ARRAY
+# ============================================================
+
+# Python List:
+# - General-purpose collection
+# - Good for storing different types of data
+# - Numerical operations usually require loops
+# - Multidimensional numerical data is less convenient
+#
+# NumPy Array:
+# - Designed for numerical computing
+# - Direct element-wise operations
+# - Supports multidimensional arrays
+# - Provides many mathematical functions
+# - Widely used in Data Science
+
+
+# ============================================================
+# 6. ADVANTAGES OF NUMPY
+# ============================================================
+
+# ---------------------------
+# 1. Efficient numerical operations
+# ---------------------------
+
+arr = np.array([10, 20, 30])
+
+print("\nAdd 10:")
+print(arr + 10)
+
+print("\nMultiply by 2:")
+print(arr * 2)
+
+print("\nDivide by 5:")
+print(arr / 5)
+
+
+# ---------------------------
+# 2. Multidimensional arrays
+# ---------------------------
+
+# 1D:
+# [1, 2, 3]
+
+# 2D:
+# [[1, 2],
+#  [3, 4]]
+
+# 3D:
+# Multiple 2D arrays.
+
+
+# ---------------------------
+# 3. Mathematical functions
+# ---------------------------
+
+# Examples:
+#
+# np.sqrt()
+# np.sum()
+# np.mean()
+# np.min()
+# np.max()
+#
+# These will be studied in later chapters.
+
+
+# ============================================================
+# 7. NUMPY INSTALLATION
+# ============================================================
+
+# Run this command in VS Code Terminal:
+#
+# pip install numpy
+#
+# Alternative:
+#
+# python -m pip install numpy
+#
+# To check installation:
+#
+# pip show numpy
+
+
+# ============================================================
+# 8. IMPORTING NUMPY
+# ============================================================
+
+# Syntax:
+#
+# import numpy as np
+#
+# import
+#     ↓
+# Loads a library
+#
+# numpy
+#     ↓
+# Library name
+#
+# as
+#     ↓
+# Creates an alias
+#
+# np
+#     ↓
+# Short name for NumPy
+
+import numpy as np
+
+
+# ============================================================
+# 9. WHY DO WE USE "np"?
+# ============================================================
+
+# Instead of writing:
+#
+# numpy.array()
+# numpy.sqrt()
+# numpy.mean()
+#
+# We normally write:
+#
+# np.array()
+# np.sqrt()
+# np.mean()
+#
+# np is the standard alias for NumPy.
+
+
+# ============================================================
+# 10. CHECK NUMPY VERSION
+# ============================================================
+
+print("\nNumPy Version:")
+print(np.__version__)
+
+# Output depends on your installed version.
+#
+# Example:
+# 2.x.x
+
+
+# ============================================================
+# 11. FIRST NUMPY PROGRAM
+# ============================================================
+
+# Create a NumPy array.
+
+arr = np.array([10, 20, 30, 40, 50])
+
+print("\nArray:")
+print(arr)
+
+# Output:
+# [10 20 30 40 50]
+
+
+# Add 10 to every element.
+
+result = arr + 10
+
+print("\nAfter adding 10:")
+print(result)
+
+# Output:
+# [20 30 40 50 60]
+
+
+# Print NumPy version.
+
+print("\nNumPy Version:")
+print(np.__version__)
+
+
+# ============================================================
+# 12. LINE-BY-LINE UNDERSTANDING
+# ============================================================
+
+# Step 1:
+# import numpy as np
+#
+# Makes NumPy available in the program.
+
+
+# Step 2:
+# arr = np.array([10, 20, 30, 40, 50])
+#
+# Creates a NumPy array.
+#
+# Visual:
+#
+# [10 20 30 40 50]
+
+
+# Step 3:
+# result = arr + 10
+#
+# NumPy adds 10 to every element.
+#
+# 10 + 10 = 20
+# 20 + 10 = 30
+# 30 + 10 = 40
+# 40 + 10 = 50
+# 50 + 10 = 60
+
+
+# ============================================================
+# 13. REAL-WORLD EXAMPLE - SALES
+# ============================================================
+
+# Sales for five days.
+
+sales = np.array([
+    1000,
+    1500,
+    1200,
+    1800,
+    2000
+])
+
+# 10% discount means customer pays 90%.
+#
+# 100% - 10% = 90%
+# 90% = 0.90
+
+discounted_sales = sales * 0.90
+
+print("\nOriginal Sales:")
+print(sales)
+
+print("\nAfter 10% Discount:")
+print(discounted_sales)
+
+# Output:
+#
+# Original Sales:
+# [1000 1500 1200 1800 2000]
+#
+# After 10% Discount:
+# [ 900. 1350. 1080. 1620. 1800.]
+
+
+# ============================================================
+# MATHEMATICAL DRY RUN
+# ============================================================
+
+# 1000 × 0.90 = 900
+# 1500 × 0.90 = 1350
+# 1200 × 0.90 = 1080
+# 1800 × 0.90 = 1620
+# 2000 × 0.90 = 1800
+
+
+# ============================================================
+# 14. COMMON MISTAKES
+# ============================================================
+
+# ---------------------------
+# Mistake 1:
+# Forgetting to import NumPy
+# ---------------------------
+
+# Wrong:
+#
+# arr = np.array([1, 2, 3])
+#
+# Possible error:
+# NameError: name 'np' is not defined
+
+
+# Correct:
+
+import numpy as np
+
+arr = np.array([1, 2, 3])
+
+
+# ---------------------------
+# Mistake 2:
+# NumPy is not installed
+# ---------------------------
+
+# Possible error:
+#
+# ModuleNotFoundError:
+# No module named 'numpy'
+#
+# Fix in VS Code Terminal:
+#
+# pip install numpy
+
+
+# ---------------------------
+# Mistake 3:
+# Confusing List and Array operations
+# ---------------------------
+
+# Python List:
+
+print("\nList:")
+print([1, 2, 3] * 2)
+
+# Output:
+# [1, 2, 3, 1, 2, 3]
+
+
+# NumPy Array:
+
+print("\nNumPy Array:")
+print(np.array([1, 2, 3]) * 2)
+
+# Output:
+# [2 4 6]
+
+
+# ============================================================
+# 15. INTERVIEW QUESTIONS
+# ============================================================
+
+# Q1. What is NumPy?
+#
+# Answer:
+# NumPy is a Python library used for
+# numerical computing and efficient array-based operations.
+
+
+# Q2. What does NumPy stand for?
+#
+# Answer:
+# Numerical Python.
+
+
+# Q3. Why is NumPy used in Data Science?
+#
+# Answer:
+# It provides efficient numerical operations,
+# arrays, mathematical functions, and tools
+# for processing numerical data.
+
+
+# Q4. How do you install NumPy?
+#
+# Answer:
+# pip install numpy
+
+
+# Q5. How do you import NumPy?
+#
+# Answer:
+# import numpy as np
+
+
+# Q6. What is np?
+#
+# Answer:
+# np is the conventional alias for NumPy.
+
+
+# Q7. How do you check NumPy version?
+#
+# Answer:
+# print(np.__version__)
+
+
+# Q8. What is the output?
+
+a = np.array([1, 2, 3])
+
+print("\nInterview Example:")
+print(a * 2)
+
+# Output:
+# [2 4 6]
+
+
+# Q9. Difference between Python List and NumPy Array?
+#
+# Python List:
+# General-purpose collection.
+#
+# NumPy Array:
+# Designed for efficient numerical
+# and multidimensional operations.
+
+
+# ============================================================
+# 16. BEGINNER PRACTICE
+# ============================================================
+
+# Practice 1:
+# Create a NumPy array containing:
+#
+# [10, 20, 30, 40, 50]
+
+
+# Practice 2:
+# Print the array.
+
+
+# Practice 3:
+# Add 10 to every element.
+
+
+# Practice 4:
+# Multiply every element by 2.
+
+
+# Practice 5:
+# Print the NumPy version.
+
+
+# ============================================================
+# 17. MINI CODING EXERCISE
+# ============================================================
+
+# Requirements:
+#
+# 1. Import NumPy
+# 2. Create:
+#    [100, 200, 300, 400, 500]
+# 3. Add 50
+# 4. Multiply the result by 2
+# 5. Print final array
+# 6. Print NumPy version
+
+
+import numpy as np
+
+numbers = np.array([
+    100,
+    200,
+    300,
+    400,
+    500
+])
+
+# Add 50.
+
+numbers = numbers + 50
+
+# Multiply the result by 2.
+
+numbers = numbers * 2
+
+print("\nFinal Result:")
+print(numbers)
+
+# Output:
+# [300 500 700 900 1100]
+
+print("\nNumPy Version:")
+print(np.__version__)
+
+
+# ============================================================
+# 18. CHAPTER 1 REVISION
+# ============================================================
+
+# 1. NumPy
+#    → Numerical Python
+#
+# 2. Create array
+#    → np.array()
+#
+# 3. Import NumPy
+#    → import numpy as np
+#
+# 4. Alias
+#    → np
+#
+# 5. Version
+#    → np.__version__
+#
+# 6. Element-wise operation
+#    → arr + 10
+#    → arr * 2
+
+
+# ============================================================
+# GOLDEN RULE
+# ============================================================
+
+# Python List
+# → General-purpose collection
+#
+# NumPy Array
+# → Numerical computing
+
+
+# ============================================================
+# END OF CHAPTER 1
+# ============================================================
